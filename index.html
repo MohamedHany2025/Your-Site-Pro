@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="logo1.png" type="image/x-icon">
     <title>موقعك الإحترافي | Your Site Pro</title>
-        
+
     <!-- وصف الموقع لمحركات البحث -->
-    <meta name="description" content="خدمات تصميم مواقع إلكترونية احترافية، أسعار تبدأ من 400 جنيه فقط. باقات مرنة + تسليم كامل ملفات الموقع بصيغة ZIP.">
-  
+    <meta name="description" content="خدمات تصميم مواقع إلكترونية احترافية، أسعار تبدأ من 900 جنيه فقط. باقات مرنة + تسليم كامل ملفات الموقع بصيغة ZIP.">
+
     <!-- كلمات مفتاحية (مش أساسية زي زمان بس ممكن تساعد) -->
     <meta name="keywords" content="تصميم مواقع, برمجة مواقع, تصميم مواقع مصر, web design egypt, موقعك برو, تصميم متجر الكتروني">
-  
+
     <!-- معلومات المؤلف -->
     <meta name="author" content="موقعك برو">
   
     <!-- Open Graph للفيسبوك -->
     <meta property="og:title" content="تصميم مواقع احترافية في مصر | موقعك برو">
-    <meta property="og:description" content="خدمات تصميم مواقع إلكترونية احترافية بأسعار تبدأ من 400 جنيه فقط. دعم فني، باقات مرنة، وتسليم كامل ملفات الموقع بصيغة ZIP.">
+    <meta property="og:description" content="خدمات تصميم مواقع إلكترونية احترافية بأسعار تبدأ من 900 جنيه فقط. دعم فني، باقات مرنة، وتسليم كامل ملفات الموقع بصيغة ZIP.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://xspeedo-gaming.github.io/Your-Site-Pro/">
-    <meta property="og:image" content="https://xspeedo-gaming.github.io/Your-Site-Pro/logo1.png">
+    <meta property="og:url" content="https://mohamedhany2025.github.io/Your-Site-Pro/">
+    <meta property="og:image" content="https://mohamedhany2025.github.io/Your-Site-Pro/logo1.png">
   
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="تصميم مواقع احترافية في مصر | موقعك برو">
-    <meta name="twitter:description" content="باقات تبدأ من 400 جنيه فقط، مع دعم فني وتسليم كامل ملفات الموقع بصيغة ZIP.">
-    <meta name="twitter:image" content="https://xspeedo-gaming.github.io/Your-Site-Pro/logo1.png">
+    <meta name="twitter:description" content="باقات تبدأ من 900 جنيه فقط، مع دعم فني وتسليم كامل ملفات الموقع بصيغة ZIP.">
+    <meta name="twitter:image" content="https://mohamedhany2025.github.io/Your-Site-Pro/logo1.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap');
@@ -38,13 +38,23 @@
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         .card-hover {
             transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        };
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.12);
+            border-color: rgba(102, 126, 234, 0.25);
+        }
         
         .fade-in {
             opacity: 0;
@@ -61,41 +71,345 @@
         
         .lang-switch {
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
         .lang-switch:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-color: rgba(102, 126, 234, 0.35);
         }
         .lang-switch:active{
             transform: scale(0.95);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(102, 126, 234, 0.1);
         }
+        
+        nav {
+            background: linear-gradient(to right, #ffffff 0%, #f8f7ff 100%);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            background-color: rgba(102, 126, 234, 0.02);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            z-index: 9999;
+            min-width: 300px;
+            max-width: 400px;
+            animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-right: 5px solid #667eea;
+        }
+        
+        .toast.success {
+            border-right-color: #10b981;
+        }
+        
+        .toast.success .toast-text {
+            color: #065f46;
+        }
+        
+        .toast.error {
+            border-right-color: #ef4444;
+        }
+        
+        .toast.error .toast-text {
+            color: #7f1d1d;
+        }
+        
+        .toast.info {
+            border-right-color: #3b82f6;
+        }
+        
+        .toast.info .toast-text {
+            color: #1e3a8a;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        
+        .toast.hide {
+            animation: slideOut 0.4s ease forwards;
+        }
+        
+        /* Request ID Modal Styles */
+        .request-id-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .request-id-box {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .request-id-display {
+            background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+            border: 2px dashed #667eea;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+            letter-spacing: 2px;
+            box-shadow: inset 0 2px 8px rgba(102, 126, 234, 0.08);
+            background-clip: padding-box;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Track Status Styles */
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .status-badge.pending {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+        
+        .status-badge.accepted {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        
+        .status-badge.rejected {
+            background: #fee2e2;
+            color: #7f1d1d;
+            border: 1px solid #fca5a5;
+        }
+        
+        .track-section {
+            background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+            border: 2px solid rgba(102, 126, 234, 0.15);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+        }
+        
+        .track-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 16px;
+            border: 2px solid rgba(102, 126, 234, 0.25);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+        
+        .track-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 2px 8px rgba(102, 126, 234, 0.2);
+            background: white;
+        }
+        
+        .track-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            font-size: 15px;
+        }
+        
+        .track-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .track-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .track-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .track-result {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 20px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.08);
+        }
+        
+        .track-result.found {
+            border-left-color: #10b981;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+        
+        .track-result.not-found {
+            border-left-color: #ef4444;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.08);
+        }
+        
         @media (max-width: 600px) {
-        .arabic { font-size: 16px; }
-        .english { font-size: 16px; }
-        .gradient-bg {
-          font-size: 18px;
-        }
-        
-        .card-hover {
-            font-size: 18px;
-        }
-        .card-hover:hover {
-            font-size: 18px;
-        };
-        
-        .fade-in {
-            font-size: 18px;
-        }
-        .lang-switch {
-            font-size: 18px;
-        }
-        .lang-switch:hover {
-            font-size: 18px;
-        }
-        .lang-switch:active{
-            font-size: 18px;
-        }
+            .arabic { font-size: 16px; }
+            .english { font-size: 16px; }
+            .gradient-bg {
+              font-size: 18px;
+            }
+            
+            .card-hover {
+                font-size: 18px;
+            }
+            .card-hover:hover {
+                font-size: 18px;
+            }
+            
+            .fade-in {
+                font-size: 18px;
+            }
+            .lang-switch {
+                font-size: 18px;
+            }
+            .lang-switch:hover {
+                font-size: 18px;
+            }
+            .lang-switch:active{
+                font-size: 18px;
+            }
+            
+            .section-title::after {
+                width: 40px;
+            }
+            
+            .track-input {
+                max-width: 100%;
+            }
+            
+            .track-btn {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+            
+            .request-id-box {
+                padding: 30px 20px;
+            }
+            
+            .copy-btn {
+                width: 100%;
+                margin: 8px 0;
+            }
         }
     </style>
 </head>
@@ -137,13 +451,13 @@
                     نحن فريق من المطورين والمصممين المحترفين نساعدك في إنشاء موقع إلكتروني متميز يعكس هويتك ويحقق أهدافك التجارية
                 </p>
                 <div class="space-x-4 space-x-reverse">
-                    <button onclick="scrollToSection('contact')" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" id="cta-primary">
+                    <button onclick="scrollToSection('contact')" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:shadow-lg transition-all hover:scale-105" id="cta-primary">
                         ابدأ مشروعك الآن
                     </button>
-                    <button onclick="window.location.href='we-working.html'" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors" id="cta-s">
+                    <button onclick="window.location.href='we-working.html'" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-all hover:shadow-lg hover:scale-105" id="cta-s">
                         أعمالنا
                     </button>
-                    <button onclick="scrollToSection('services')"  class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" id="cta-secondary">
+                    <button onclick="scrollToSection('services')"  class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:shadow-lg transition-all hover:scale-105" id="cta-secondary">
                         تعرف على خدماتنا
                     </button>
                 </div>
@@ -273,7 +587,7 @@
                         <div class="text-center p-6 bg-white rounded-xl">
                             <div class="text-3xl mb-3">📧</div>
                             <h4 class="font-semibold text-gray-900 mb-2" id="email-title">البريد الإلكتروني</h4>
-                            <p class="text-gray-600">info@yoursitepro.com</p>
+                            <p class="text-gray-600">xspeedo909@gmail.com</p>
                         </div>
                         
                         <div class="text-center p-6 bg-white rounded-xl">
@@ -284,7 +598,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <button onclick="showContactForm()" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-lg" id="contact-btn">
+                        <button onclick="showContactForm()" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-lg" id="contact-btn">
                             احصل على استشارة مجانية
                         </button>
                         <p class="text-sm text-gray-500 mt-4" id="contact-note">
@@ -292,6 +606,32 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Request Section -->
+    <section id="track" class="py-20 bg-gray-50">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4" id="track-title">تتبع طلبك</h3>
+                <p class="text-lg text-gray-600" id="track-subtitle">أدخل رقم طلبك للتحقق من حالة القبول</p>
+            </div>
+            
+            <div class="track-section">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                    <input 
+                        type="text" 
+                        id="trackInput" 
+                        placeholder="مثال: REQ-XXXXX-XXXXX"
+                        class="track-input"
+                    >
+                    <button onclick="trackRequest()" class="track-btn" id="track-btn">
+                        تحقق من الحالة
+                    </button>
+                </div>
+                
+                <div id="trackResult" class="hidden"></div>
             </div>
         </div>
     </section>
@@ -320,15 +660,143 @@
                 
                 <div class="border-t border-gray-800 pt-8">
                     <p class="text-gray-400" id="copyright">
-                        © 2025 موقعك الإحترافي. جميع الحقوق محفوظة.
+                        © 2026 موقعك الإحترافي. جميع الحقوق محفوظة.
                     </p>
                 </div>
             </div>
         </div>
     </footer>
-
+    
+    <!-- Request ID Modal -->
+    <div id="requestIdModal" class="hidden request-id-modal">
+        <div class="request-id-box">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2" id="success-title">✓ تم الإرسال بنجاح</h2>
+            <p class="text-gray-600 mb-6" id="success-subtitle">احفظ رقم طلبك للاستعلام عنه لاحقاً</p>
+            
+            <div class="request-id-display" id="requestIdDisplay">REQ-XXXXX-XXXXX</div>
+            
+            <p class="text-sm text-gray-500 mb-6" id="copy-note">انقر على الزر أسفله لنسخ الرقم</p>
+            
+            <div class="flex gap-3 justify-center flex-wrap">
+                <button onclick="copyRequestId()" class="copy-btn" id="copy-btn">
+                    📋 انسخ الرقم
+                </button>
+                <button onclick="closeRequestIdModal()" class="copy-btn" style="background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);" id="close-btn">
+                    تم
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-500 mt-6" id="track-info">
+                يمكنك تتبع حالة طلبك من خلال القسم الخاص بـ "تتبع الطلب" أعلاه
+            </p>
+        </div>
+    </div>
+    
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-auto">
+            <div class="gradient-bg text-white p-8 flex justify-between items-center">
+                <div>
+                    <h2 class="text-3xl font-bold" id="form-title">احصل على استشارة مجانية</h2>
+                    <p class="text-indigo-100 mt-2" id="form-subtitle">دعنا نساعدك في بناء موقعك الاحترافي</p>
+                </div>
+                <button onclick="closeContactForm()" class="text-white text-3xl font-bold hover:text-indigo-200 transition">&times;</button>
+            </div>
+            
+            <form id="contactFormElement" class="p-8 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-name">الاسم الكامل</label>
+                        <input type="text" id="name" required placeholder="أدخل اسمك الكامل" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required placeholder="example@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" required placeholder="+20 1XX XXX XXXX" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-company">اسم الشركة</label>
+                        <input type="text" id="company" placeholder="اسم شركتك أو مشروعك" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-service">نوع الخدمة</label>
+                    <select id="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition bg-white">
+                        <option value="">اختر نوع الخدمة</option>
+                        <option value="web-design" id="opt-web">تصميم موقع</option>
+                        <option value="mobile-app" id="opt-mobile">تطبيق موبايل</option>
+                        <option value="ecommerce" id="opt-ecom">متجر إلكتروني</option>
+                        <option value="bot" id="opt-bot">بوت ذكي</option>
+                        <option value="other" id="opt-other">أخرى</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-budget">الميزانية المتوقعة</label>
+                    <select id="budget" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition bg-white">
+                        <option value="">اختر الميزانية</option>
+                        <option value="under-500" id="budget-1">أقل من 500 جنيه</option>
+                        <option value="500-1000" id="budget-2">500 - 1000 جنيه</option>
+                        <option value="1000-5000" id="budget-3">1000 - 5000 جنيه</option>
+                        <option value="5000-plus" id="budget-4">5000 جنيه فأكثر</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" id="label-message">وصف المشروع</label>
+                    <textarea id="message" required placeholder="أخبرنا عن مشروعك وأهدافك..." rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition resize-none"></textarea>
+                </div>
+                
+                <div class="flex items-start space-x-3 space-x-reverse">
+                    <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 cursor-pointer">
+                    <label for="terms" class="text-sm text-gray-600" id="label-terms">أوافق على شروط الاستخدام وسياسة الخصوصية</label>
+                </div>
+                
+                <div class="flex space-x-4 space-x-reverse">
+                    <button type="submit" class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105" id="btn-submit">
+                        إرسال الطلب
+                    </button>
+                    <button type="button" onclick="closeContactForm()" class="flex-1 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition" id="btn-cancel">
+                        إلغاء
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script>
         let isArabic = true;
+        
+        // Generate Unique Request ID
+        function generateRequestId() {
+            const timestamp = Date.now().toString(36);
+            const random = Math.random().toString(36).substring(2, 8);
+            return `REQ-${timestamp}-${random}`.toUpperCase();
+        }
+        
+        // Toast Notification Function
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<div class="toast-text font-semibold">${message}</div>`;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('hide');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 3000);
+        }
+        
         
         const translations = {
             ar: {
@@ -378,7 +846,38 @@
                 contactNote: "سنتواصل معك خلال 24 ساعة لمناقشة مشروعك",
                 footerTitle: "موقعك الإحترافي",
                 footerDesc: "نبني مواقع احترافية تميز علامتك التجارية",
-                copyright: "© 2025 موقعك الإحترافي. جميع الحقوق محفوظة."
+                copyright: "© 2026 موقعك الإحترافي. جميع الحقوق محفوظة.",
+                // Form translations
+                formTitle: "احصل على استشارة مجانية",
+                formSubtitle: "دعنا نساعدك في بناء موقعك الاحترافي",
+                labelName: "الاسم الكامل",
+                labelEmail: "البريد الإلكتروني",
+                labelPhone: "رقم الهاتف",
+                labelCompany: "اسم الشركة",
+                labelService: "نوع الخدمة",
+                labelBudget: "الميزانية المتوقعة",
+                labelMessage: "وصف المشروع",
+                labelTerms: "أوافق على شروط الاستخدام وسياسة الخصوصية",
+                optWeb: "تصميم موقع",
+                optMobile: "تطبيق موبايل",
+                optEcom: "متجر إلكتروني",
+                optBot: "بوت ذكي",
+                optOther: "أخرى",
+                budget1: "أقل من 500 جنيه",
+                budget2: "500 - 1000 جنيه",
+                budget3: "1000 - 5000 جنيه",
+                budget4: "5000 جنيه فأكثر",
+                btnSubmit: "إرسال الطلب",
+                btnCancel: "إلغاء",
+                trackTitle: "تتبع طلبك",
+                trackSubtitle: "أدخل رقم طلبك للتحقق من حالة القبول",
+                trackBtn: "تحقق من الحالة",
+                successTitle: "✓ تم الإرسال بنجاح",
+                successSubtitle: "احفظ رقم طلبك للاستعلام عنه لاحقاً",
+                copyNote: "انقر على الزر أسفله لنسخ الرقم",
+                copyBtn: "📋 انسخ الرقم",
+                closeBtn: "تم",
+                trackInfo: "يمكنك تتبع حالة طلبك من خلال القسم الخاص بـ تتبع الطلب أعلاه"
             },
             en: {
                 logo: "Your Site Pro",
@@ -427,9 +926,164 @@
                 contactNote: "We will contact you within 24 hours to discuss your project",
                 footerTitle: "Your Site Pro",
                 footerDesc: "We build professional websites that distinguish your brand",
-                copyright: "© 2025 Your Site Pro. All rights reserved."
+                copyright: "© 2026 Your Site Pro. All rights reserved.",
+                // Form translations
+                formTitle: "Get a Free Consultation",
+                formSubtitle: "Let us help you build your professional website",
+                labelName: "Full Name",
+                labelEmail: "Email Address",
+                labelPhone: "Phone Number",
+                labelCompany: "Company Name",
+                labelService: "Service Type",
+                labelBudget: "Expected Budget",
+                labelMessage: "Project Description",
+                labelTerms: "I agree to the terms and conditions and privacy policy",
+                optWeb: "Web Design",
+                optMobile: "Mobile App",
+                optEcom: "E-commerce Store",
+                optBot: "Smart Bot",
+                optOther: "Other",
+                budget1: "Less than 500 EGP",
+                budget2: "500 - 1000 EGP",
+                budget3: "1000 - 5000 EGP",
+                budget4: "5000 EGP or more",
+                btnSubmit: "Send Request",
+                btnCancel: "Cancel",
+                trackTitle: "Track Your Request",
+                trackSubtitle: "Enter your request ID to check acceptance status",
+                trackBtn: "Check Status",
+                successTitle: "✓ Sent Successfully",
+                successSubtitle: "Save your request ID to track it later",
+                copyNote: "Click the button below to copy the number",
+                copyBtn: "📋 Copy Number",
+                closeBtn: "Done",
+                trackInfo: "You can track your request status through the Track Request section above"
             }
         };
+        
+        // Store current request ID globally
+        let currentRequestId = '';
+        
+        // Show Request ID Modal
+        function showRequestIdModal(requestId) {
+            currentRequestId = requestId;
+            document.getElementById('requestIdDisplay').textContent = requestId;
+            document.getElementById('requestIdModal').classList.remove('hidden');
+        }
+        
+        // Close Request ID Modal
+        function closeRequestIdModal() {
+            document.getElementById('requestIdModal').classList.add('hidden');
+        }
+        
+        // Copy Request ID to Clipboard
+        function copyRequestId() {
+            const copyBtn = document.getElementById('copy-btn');
+            navigator.clipboard.writeText(currentRequestId).then(() => {
+                const originalText = isArabic ? '📋 انسخ الرقم' : '📋 Copy Number';
+                copyBtn.textContent = isArabic ? '✓ تم النسخ!' : '✓ Copied!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                showToast(isArabic ? '✗ فشل النسخ' : '✗ Copy failed', 'error');
+            });
+        }
+        
+        // Track Request Status
+        async function trackRequest() {
+            const trackInput = document.getElementById('trackInput');
+            const requestId = trackInput.value.trim().toUpperCase();
+            const trackResult = document.getElementById('trackResult');
+            const trackBtn = document.getElementById('track-btn');
+            
+            if (!requestId) {
+                showToast(isArabic ? 'أدخل رقم الطلب' : 'Enter request ID', 'info');
+                return;
+            }
+            
+            trackBtn.disabled = true;
+            trackBtn.textContent = isArabic ? 'جاري البحث...' : 'Searching...';
+            
+            try {
+                const BIN_ID = "6981c37bd0ea881f409d39b2";
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': '$2a$10$EVEgnKcuZEoujGa1B3HQmuU7C3Eh6NfJFdYR9IH0r1mQR3UAc2SU2'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    let allRequests = Array.isArray(data.record) ? data.record : [data.record];
+                    
+                    const foundRequest = allRequests.find(req => req.requestId === requestId);
+                    
+                    if (foundRequest) {
+                        const statusText = foundRequest.accepted === true 
+                            ? (isArabic ? '✓ تم قبول طلبك' : '✓ Your request accepted')
+                            : (isArabic ? '⏳ قيد المراجعة' : '⏳ Under review');
+                        
+                        const statusClass = foundRequest.accepted === true ? 'accepted' : 'pending';
+                        const statusArColor = foundRequest.accepted === true ? '#065f46' : '#92400e';
+                        const statusBg = foundRequest.accepted === true ? '#d1fae5' : '#fef3c7';
+                        
+                        trackResult.innerHTML = `
+                            <div class="track-result found">
+                                <h4 class="text-lg font-bold text-gray-900 mb-3">${isArabic ? 'معلومات الطلب' : 'Request Details'}</h4>
+                                <div class="space-y-3 text-left">
+                                    <div>
+                                        <span class="text-gray-600 font-semibold">${isArabic ? 'الاسم:' : 'Name:'}</span>
+                                        <span class="text-gray-900 mr-2">${foundRequest.name}</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-600 font-semibold">${isArabic ? 'البريد:' : 'Email:'}</span>
+                                        <span class="text-gray-900 mr-2">${foundRequest.email}</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-600 font-semibold">${isArabic ? 'الخدمة:' : 'Service:'}</span>
+                                        <span class="text-gray-900 mr-2">${foundRequest.service}</span>
+                                    </div>
+                                    <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 12px;">
+                                        <div style="background: ${statusBg}; padding: 12px; border-radius: 8px; text-align: center;">
+                                            <p style="color: ${statusArColor}; font-weight: 700; font-size: 16px;">${statusText}</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-400 mt-3">${isArabic ? 'تاريخ الإرسال:' : 'Sent:'} ${new Date(foundRequest.timestamp).toLocaleDateString(isArabic ? 'ar-EG' : 'en-US')}</p>
+                                </div>
+                            </div>
+                        `;
+                        trackResult.classList.remove('hidden');
+                    } else {
+                        trackResult.innerHTML = `
+                            <div class="track-result not-found">
+                                <p class="text-gray-900 font-semibold">${isArabic ? '✗ لم نجد الطلب' : '✗ Request not found'}</p>
+                                <p class="text-gray-600 text-sm mt-2">${isArabic ? 'تأكد من رقم الطلب وحاول مجددًا' : 'Make sure your request ID is correct'}</p>
+                            </div>
+                        `;
+                        trackResult.classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showToast(isArabic ? '✗ حدث خطأ' : '✗ An error occurred', 'error');
+            } finally {
+                trackBtn.disabled = false;
+                trackBtn.textContent = isArabic ? 'تحقق من الحالة' : 'Check Status';
+            }
+        }
+        
+        // Add Enter key support for track input
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('trackInput') === document.activeElement) {
+                trackRequest();
+            }
+        });
         
         function toggleLanguage() {
             isArabic = !isArabic;
@@ -497,7 +1151,16 @@
                 'contact-note': 'contactNote',
                 'footer-title': 'footerTitle',
                 'footer-desc': 'footerDesc',
-                'copyright': 'copyright'
+                'copyright': 'copyright',
+                'track-title': 'trackTitle',
+                'track-subtitle': 'trackSubtitle',
+                'track-btn': 'trackBtn',
+                'success-title': 'successTitle',
+                'success-subtitle': 'successSubtitle',
+                'copy-note': 'copyNote',
+                'copy-btn': 'copyBtn',
+                'close-btn': 'closeBtn',
+                'track-info': 'trackInfo'
             };
             
             Object.keys(elementMap).forEach(elementId => {
@@ -517,7 +1180,120 @@
         }
         
         function showContactForm() {
-          window.location.href = 'https://www.facebook.com/profile.php?id=61579864318086#';
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContactForm() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.getElementById('contactFormElement').reset();
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeContactForm();
+            }
+        });
+        
+        // Handle form submission
+        const contactForm = document.getElementById('contactFormElement');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const requestId = generateRequestId();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value;
+            const timestamp = new Date().toISOString();
+            
+            const newRequest = {
+                requestId,
+                name,
+                email,
+                phone,
+                company,
+                service,
+                budget,
+                message,
+                timestamp,
+                accepted: false
+            };
+            
+            const submitBtn = document.querySelector('button[type="submit"]');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = isArabic ? 'جاري الإرسال...' : 'Sending...';
+            showToast(isArabic ? '⏳ جاري إرسال طلبك...' : '⏳ Sending your request...', 'info');
+
+            try {
+                const BIN_ID = "6981c37bd0ea881f409d39b2";
+                
+                // أولاً: قراءة البيانات الحالية
+                const getResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': '$2a$10$EVEgnKcuZEoujGa1B3HQmuU7C3Eh6NfJFdYR9IH0r1mQR3UAc2SU2'
+                    }
+                });
+                
+                let allRequests = [];
+                
+                if (getResponse.ok) {
+                    const data = await getResponse.json();
+                    // التحقق من أن البيانات array أم object
+                    if (Array.isArray(data.record)) {
+                        allRequests = data.record;
+                    } else if (data.record && typeof data.record === 'object' && !Array.isArray(data.record)) {
+                        allRequests = [data.record];
+                    }
+                } else if (getResponse.status === 404) {
+                    // إذا كان bin جديد، ابدأ بـ array فارغ
+                    allRequests = [];
+                }
+                
+                // إضافة الطلب الجديد
+                allRequests.push(newRequest);
+                
+                // حفظ جميع الطلبات
+                const putResponse = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': '$2a$10$EVEgnKcuZEoujGa1B3HQmuU7C3Eh6NfJFdYR9IH0r1mQR3UAc2SU2'
+                    },
+                    body: JSON.stringify(allRequests)
+                });
+                
+                if (putResponse.ok) {
+                    const successMsg = isArabic 
+                        ? `✓ تم إرسال طلبك بنجاح!`
+                        : `✓ Your request has been sent successfully!`;
+                    
+                    showToast(successMsg, 'success');
+                    showRequestIdModal(requestId);
+                    
+                    setTimeout(() => {
+                        closeContactForm();
+                    }, 3000);
+                } else {
+                    throw new Error('Failed to save data');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showToast(isArabic ? '✗ حدث خطأ. يرجى المحاولة لاحقاً' : '✗ An error occurred. Please try again later', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = isArabic ? 'إرسال الطلب' : 'Send Request';
+            }
+        });
         }
         
         // Smooth scrolling for navigation links
@@ -551,5 +1327,5 @@
             observer.observe(card);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97ea1cd5e00c29c2',t:'MTc1Nzc5MjM4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

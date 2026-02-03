@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xspeedo-gaming.github.io/Your-Site-Pro/sitemap.xml
+Sitemap: https://mohamedhany2025.github.io/Your-Site-Pro/sitemap.xml
