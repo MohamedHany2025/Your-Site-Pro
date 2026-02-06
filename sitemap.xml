@@ -17,6 +17,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- ملف we-working.html -->
+  <url>
+    <loc>https://mohamedhany2025.github.io/Your-Site-Pro/we-working.html</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ملف admin-login.html -->
+  <url>
+    <loc>https://mohamedhany2025.github.io/Your-Site-Pro/admin-login.html</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ملف Photo.html -->
   <url>
     <loc>https://mohamedhany2025.github.io/Your-Site-Pro/Photo.html</loc>

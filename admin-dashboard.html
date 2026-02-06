@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assests/logo1.png" type="image/x-icon">
+    <title>لوحة الإدارة | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        .arabic { font-family: 'Cairo', sans-serif; }
+        .english { font-family: 'Inter', sans-serif; }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f7ff 0%, #f3f0ff 100%);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 2px 12px rgba(102, 126, 234, 0.08);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.95);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 10px 16px;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+        }
+        
+        /* Login Screen */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+            max-width: 450px;
+            width: 100%;
+        }
+        
+        .login-card h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .login-card p {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Dashboard Header */
+        .dashboard-header {
+            background: linear-gradient(to right, #ffffff 0%, #f8f7ff 100%);
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            z-index: 9999;
+            min-width: 300px;
+            max-width: 400px;
+            animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-right: 5px solid #667eea;
+        }
+        
+        .toast.success {
+            border-right-color: #10b981;
+        }
+        
+        .toast.success .toast-text {
+            color: #065f46;
+        }
+        
+        .toast.error {
+            border-right-color: #ef4444;
+        }
+        
+        .toast.error .toast-text {
+            color: #7f1d1d;
+        }
+        
+        .toast.info {
+            border-right-color: #3b82f6;
+        }
+        
+        .toast.info .toast-text {
+            color: #1e3a8a;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .toast.hide {
+            animation: slideOut 0.4s ease forwards;
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+            padding: 16px;
+            text-align: right;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.15);
+            font-size: 14px;
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        tr:hover {
+            background: rgba(102, 126, 234, 0.03);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .status-accepted {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+        
+        .status-rejected {
+            background: #fee2e2;
+            color: #7f1d1d;
+            border: 1px solid #fca5a5;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal.hidden {
+            display: none;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .modal-detail {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .modal-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .modal-detail-label {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .modal-detail-value {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid rgba(102, 126, 234, 0.1);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 40px;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .empty-state-text {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            card-shadow;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .w-12{
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto 5px;
+            display: block;
+            border-radius: 40%;
+        }
+    </style>
+</head>
+<body id="body" class="bg-gray-50 arabic">
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-card card-shadow">
+            <h1>لوحة الإدارة</h1>
+            <p id="adminTitle">Welcome to Admin Dashboard</p>
+            
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="adminPassword" id="passLabel">كلمة المرور</label>
+                    <input 
+                        type="password" 
+                        id="adminPassword" 
+                        placeholder="أدخل كلمة المرور" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+                    <span id="loginBtn">دخول</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboardScreen" class="hidden">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="assests/logo2.png" alt="Logo" class="w-12 h-12">
+                    <div>
+                        <h2 id="dashTitle" class="text-xl font-bold gradient-text">لوحة الإدارة</h2>
+                        <p id="subtitle" class="text-gray-500 text-sm">إدارة الطلبات والتسجيلات</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button 
+                        onclick="toggleLanguage()" 
+                        class="btn-secondary"
+                    >
+                        <span id="langToggle">English</span>
+                    </button>
+                    <button 
+                        onclick="handleLogout()" 
+                        class="btn-danger"
+                    >
+                        <span id="logoutBtn">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalCount">0</div>
+                    <div class="stat-label" id="totalLabel">إجمالي الطلبات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="acceptedCount">0</div>
+                    <div class="stat-label" id="acceptedLabel">مقبولة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pendingCount">0</div>
+                    <div class="stat-label" id="pendingLabel">قيد المراجعة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="rejectedCount">0</div>
+                    <div class="stat-label" id="rejectedLabel">مرفوضة</div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="ابحث عن طلب..." 
+                    onkeyup="filterTable()"
+                >
+            </div>
+
+            <!-- Requests Table -->
+            <div class="bg-white rounded-12 card-shadow overflow-hidden">
+                <div id="loadingContainer" class="loading-container hidden">
+                    <div class="spinner"></div>
+                    <span id="loadingText">جاري التحميل...</span>
+                </div>
+                
+                <div id="emptyState" class="empty-state hidden">
+                    <div class="empty-state-icon">📋</div>
+                    <div class="empty-state-text" id="emptyText">لا توجد طلبات</div>
+                </div>
+                
+                <div id="tableContainer" class="table-container hidden">
+                    <table id="requestsTable">
+                        <thead>
+                            <tr>
+                                <th id="thId">رقم الطلب</th>
+                                <th id="thName">الاسم</th>
+                                <th id="thEmail">البريد الإلكتروني</th>
+                                <th id="thPhone">الهاتف</th>
+                                <th id="thService">الخدمة</th>
+                                <th id="thStatus">الحالة</th>
+                                <th id="thDate">التاريخ</th>
+                                <th id="thActions">الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Details Modal -->
+    <div id="detailsModal" class="modal hidden" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header" id="detailsTitle">تفاصيل الطلب</div>
+            <div class="modal-body" id="modalBody">
+                <!-- Details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal()" class="btn-secondary" id="closeBtn">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Status Modal -->
+    <div id="editStatusModal" class="modal hidden" onclick="closeEditModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header" id="editTitle">تعديل الحالة</div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="statusSelect" id="statusLabel">حالة القبول:</label>
+                    <select id="statusSelect" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;">
+                        <option value="pending" id="optPending">قيد المراجعة</option>
+                        <option value="accepted" id="optAccepted">مقبول</option>
+                        <option value="rejected" id="optRejected">مرفوض</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeEditModal()" class="btn-secondary" id="cancelBtn">إلغاء</button>
+                <button onclick="saveStatusChange()" class="btn-success" id="saveBtn">حفظ التغييرات</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            BIN_ID: '6981c37bd0ea881f409d39b2',
+            MASTER_KEY: '$2a$10$EVEgnKcuZEoujGa1B3HQmuU7C3Eh6NfJFdYR9IH0r1mQR3UAc2SU2',
+            ADMIN_PASSWORD: 'admin@2026'
+        };
+
+        let isArabic = true;
+        let allRequests = [];
+        let currentEditingRequest = null;
+        let isLoggedIn = false;
+
+        const translations = {
+            ar: {
+                adminTitle: 'مرحباً بك في لوحة الإدارة',
+                passLabel: 'كلمة المرور',
+                loginBtn: 'دخول',
+                logoutBtn: 'تسجيل الخروج',
+                dashTitle: 'لوحة الإدارة',
+                subtitle: 'إدارة الطلبات والتسجيلات',
+                langToggle: 'English',
+                totalLabel: 'إجمالي الطلبات',
+                acceptedLabel: 'مقبولة',
+                pendingLabel: 'قيد المراجعة',
+                rejectedLabel: 'مرفوضة',
+                emptyText: 'لا توجد طلبات',
+                loadingText: 'جاري التحميل...',
+                searchPlaceholder: 'ابحث عن طلب...',
+                thId: 'رقم الطلب',
+                thName: 'الاسم',
+                thEmail: 'البريد الإلكتروني',
+                thPhone: 'الهاتف',
+                thService: 'الخدمة',
+                thStatus: 'الحالة',
+                thDate: 'التاريخ',
+                thActions: 'الإجراءات',
+                detailsTitle: 'تفاصيل الطلب',
+                closeBtn: 'إغلاق',
+                editTitle: 'تعديل الحالة',
+                statusLabel: 'حالة القبول:',
+                optPending: 'قيد المراجعة',
+                optAccepted: 'مقبول',
+                optRejected: 'مرفوض',
+                cancelBtn: 'إلغاء',
+                saveBtn: 'حفظ التغييرات',
+                viewDetails: 'عرض التفاصيل',
+                editStatus: 'تعديل الحالة',
+                deleteRequest: 'حذف',
+                successUpdate: 'تم تحديث الحالة بنجاح',
+                errorUpdate: 'حدث خطأ في تحديث الحالة',
+                errorLoad: 'حدث خطأ في تحميل البيانات',
+                errorLogin: 'كلمة المرور غير صحيحة',
+                successLogin: 'تم تسجيل الدخول بنجاح',
+                successLogout: 'تم تسجيل الخروج',
+                company: 'الشركة',
+                budget: 'الميزانية',
+                message: 'الرسالة',
+                requestedAt: 'وقت الطلب'
+            },
+            en: {
+                adminTitle: 'Welcome to Admin Dashboard',
+                passLabel: 'Password',
+                loginBtn: 'Login',
+                logoutBtn: 'Logout',
+                dashTitle: 'Admin Dashboard',
+                subtitle: 'Manage requests and registrations',
+                langToggle: 'العربية',
+                totalLabel: 'Total Requests',
+                acceptedLabel: 'Accepted',
+                pendingLabel: 'Under Review',
+                rejectedLabel: 'Rejected',
+                emptyText: 'No requests found',
+                loadingText: 'Loading...',
+                searchPlaceholder: 'Search for a request...',
+                thId: 'Request ID',
+                thName: 'Name',
+                thEmail: 'Email',
+                thPhone: 'Phone',
+                thService: 'Service',
+                thStatus: 'Status',
+                thDate: 'Date',
+                thActions: 'Actions',
+                detailsTitle: 'Request Details',
+                closeBtn: 'Close',
+                editTitle: 'Edit Status',
+                statusLabel: 'Acceptance Status:',
+                optPending: 'Under Review',
+                optAccepted: 'Accepted',
+                optRejected: 'Rejected',
+                cancelBtn: 'Cancel',
+                saveBtn: 'Save Changes',
+                viewDetails: 'View Details',
+                editStatus: 'Edit Status',
+                deleteRequest: 'Delete',
+                successUpdate: 'Status updated successfully',
+                errorUpdate: 'Error updating status',
+                errorLoad: 'Error loading data',
+                errorLogin: 'Incorrect password',
+                successLogin: 'Logged in successfully',
+                successLogout: 'Logged out',
+                company: 'Company',
+                budget: 'Budget',
+                message: 'Message',
+                requestedAt: 'Requested At'
+            }
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUILanguage();
+        });
+
+        // Handle Login
+        function handleLogin(event) {
+            event.preventDefault();
+            const password = document.getElementById('adminPassword').value;
+
+            if (password === CONFIG.ADMIN_PASSWORD) {
+                isLoggedIn = true;
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                showToast(translations[isArabic ? 'ar' : 'en'].successLogin, 'success');
+                showDashboard();
+                loadRequests();
+            } else {
+                showToast(translations[isArabic ? 'ar' : 'en'].errorLogin, 'error');
+            }
+        }
+
+        // Handle Logout
+        function handleLogout() {
+            isLoggedIn = false;
+            sessionStorage.removeItem('adminLoggedIn');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('dashboardScreen').classList.add('hidden');
+            document.getElementById('adminPassword').value = '';
+            showToast(translations[isArabic ? 'ar' : 'en'].successLogout, 'info');
+        }
+
+        // Show Dashboard
+        function showDashboard() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboardScreen').classList.remove('hidden');
+        }
+
+        // Load Requests from JSONBin
+        async function loadRequests() {
+            showLoadingState();
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.BIN_ID}/latest`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Master-Key': CONFIG.MASTER_KEY
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    let requests = data.record;
+                    
+                    // Ensure it's an array
+                    if (!Array.isArray(requests)) {
+                        requests = [requests];
+                    }
+
+                    allRequests = requests.sort((a, b) => 
+                        new Date(b.timestamp) - new Date(a.timestamp)
+                    );
+
+                    displayRequests(allRequests);
+                    updateStats();
+                } else {
+                    showErrorState(translations[isArabic ? 'ar' : 'en'].errorLoad);
+                }
+            } catch (error) {
+                console.error('Error loading requests:', error);
+                showErrorState(translations[isArabic ? 'ar' : 'en'].errorLoad);
+            }
+        }
+
+        // Display Requests in Table
+        function displayRequests(requests) {
+            const tableBody = document.getElementById('tableBody');
+            const tableContainer = document.getElementById('tableContainer');
+            const loadingContainer = document.getElementById('loadingContainer');
+            const emptyState = document.getElementById('emptyState');
+
+            if (requests.length === 0) {
+                loadingContainer.classList.add('hidden');
+                tableContainer.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            tableBody.innerHTML = requests.map(request => {
+                const date = new Date(request.timestamp);
+                const statusClass = request.accepted === true ? 'status-accepted' : (request.accepted === false ? 'status-pending' : 'status-rejected');
+                const statusText = request.accepted === true 
+                    ? (isArabic ? '✓ مقبول' : '✓ Accepted')
+                    : (request.accepted === false 
+                        ? (isArabic ? '⏳ قيد المراجعة' : '⏳ Pending')
+                        : (isArabic ? '✗ مرفوض' : '✗ Rejected'));
+
+                return `
+                    <tr>
+                        <td>${request.requestId}</td>
+                        <td>${request.name}</td>
+                        <td>${request.email}</td>
+                        <td>${request.phone}</td>
+                        <td>${request.service}</td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${date.toLocaleDateString(isArabic ? 'ar-EG' : 'en-US')}</td>
+                        <td>
+                            <div style="display: flex; gap: 8px;">
+                                <button 
+                                    onclick="viewDetails('${request.requestId}')" 
+                                    class="btn-secondary"
+                                    title="${translations[isArabic ? 'ar' : 'en'].viewDetails}"
+                                >
+                                    👁️
+                                </button>
+                                <button 
+                                    onclick="openEditModal('${request.requestId}')" 
+                                    class="btn-primary"
+                                    style="padding: 10px 16px; font-size: 12px;"
+                                    title="${translations[isArabic ? 'ar' : 'en'].editStatus}"
+                                >
+                                    ✏️
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            loadingContainer.classList.add('hidden');
+            emptyState.classList.add('hidden');
+            tableContainer.classList.remove('hidden');
+        }
+
+        // Filter Table
+        function filterTable() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allRequests.filter(req =>
+                req.requestId.toLowerCase().includes(searchValue) ||
+                req.name.toLowerCase().includes(searchValue) ||
+                req.email.toLowerCase().includes(searchValue) ||
+                req.phone.toLowerCase().includes(searchValue)
+            );
+            displayRequests(filtered);
+        }
+
+        // Update Stats
+        function updateStats() {
+            const total = allRequests.length;
+            const accepted = allRequests.filter(r => r.accepted === true).length;
+            const pending = allRequests.filter(r => r.accepted === false).length;
+            const rejected = allRequests.filter(r => r.accepted === null || r.accepted === 'rejected').length;
+
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('acceptedCount').textContent = accepted;
+            document.getElementById('pendingCount').textContent = pending;
+            document.getElementById('rejectedCount').textContent = rejected;
+        }
+
+        // View Details
+        function viewDetails(requestId) {
+            const request = allRequests.find(r => r.requestId === requestId);
+            if (!request) return;
+
+            const date = new Date(request.timestamp);
+            const modalBody = document.getElementById('modalBody');
+            
+            const statusText = request.accepted === true 
+                ? (isArabic ? '✓ مقبول' : '✓ Accepted')
+                : (request.accepted === false 
+                    ? (isArabic ? '⏳ قيد المراجعة' : '⏳ Pending')
+                    : (isArabic ? '✗ مرفوض' : '✗ Rejected'));
+
+            modalBody.innerHTML = `
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thId}</div>
+                    <div class="modal-detail-value">${request.requestId}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thName}</div>
+                    <div class="modal-detail-value">${request.name}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thEmail}</div>
+                    <div class="modal-detail-value">${request.email}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thPhone}</div>
+                    <div class="modal-detail-value">${request.phone}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].company}</div>
+                    <div class="modal-detail-value">${request.company || '-'}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thService}</div>
+                    <div class="modal-detail-value">${request.service}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].budget}</div>
+                    <div class="modal-detail-value">${request.budget || '-'}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].message}</div>
+                    <div class="modal-detail-value">${request.message || '-'}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].thStatus}</div>
+                    <div class="modal-detail-value">${statusText}</div>
+                </div>
+                <div class="modal-detail">
+                    <div class="modal-detail-label">${translations[isArabic ? 'ar' : 'en'].requestedAt}</div>
+                    <div class="modal-detail-value">${date.toLocaleString(isArabic ? 'ar-EG' : 'en-US')}</div>
+                </div>
+            `;
+
+            document.getElementById('detailsModal').classList.remove('hidden');
+        }
+
+        // Open Edit Modal
+        function openEditModal(requestId) {
+            const request = allRequests.find(r => r.requestId === requestId);
+            if (!request) return;
+
+            currentEditingRequest = request;
+            const statusSelect = document.getElementById('statusSelect');
+            
+            if (request.accepted === true) {
+                statusSelect.value = 'accepted';
+            } else if (request.accepted === false) {
+                statusSelect.value = 'pending';
+            } else {
+                statusSelect.value = 'rejected';
+            }
+
+            document.getElementById('editStatusModal').classList.remove('hidden');
+        }
+
+        // Close Modal
+        function closeModal(event) {
+            if (event && event.target.id !== 'detailsModal') return;
+            document.getElementById('detailsModal').classList.add('hidden');
+        }
+
+        // Close Edit Modal
+        function closeEditModal(event) {
+            if (event && event.target.id !== 'editStatusModal') return;
+            document.getElementById('editStatusModal').classList.add('hidden');
+            currentEditingRequest = null;
+        }
+
+        // Save Status Change
+        async function saveStatusChange() {
+            if (!currentEditingRequest) return;
+
+            const newStatus = document.getElementById('statusSelect').value;
+            let acceptedValue;
+
+            if (newStatus === 'accepted') {
+                acceptedValue = true;
+            } else if (newStatus === 'pending') {
+                acceptedValue = false;
+            } else {
+                acceptedValue = 'rejected';
+            }
+
+            currentEditingRequest.accepted = acceptedValue;
+
+            try {
+                const response = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.BIN_ID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': CONFIG.MASTER_KEY
+                    },
+                    body: JSON.stringify(allRequests)
+                });
+
+                if (response.ok) {
+                    showToast(translations[isArabic ? 'ar' : 'en'].successUpdate, 'success');
+                    closeEditModal();
+                    displayRequests(allRequests);
+                    updateStats();
+                } else {
+                    showToast(translations[isArabic ? 'ar' : 'en'].errorUpdate, 'error');
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                showToast(translations[isArabic ? 'ar' : 'en'].errorUpdate, 'error');
+            }
+        }
+
+        // Show Loading State
+        function showLoadingState() {
+            document.getElementById('loadingContainer').classList.remove('hidden');
+            document.getElementById('tableContainer').classList.add('hidden');
+            document.getElementById('emptyState').classList.add('hidden');
+        }
+
+        // Show Error State
+        function showErrorState(message) {
+            document.getElementById('emptyState').innerHTML = `
+                <div class="empty-state-icon">⚠️</div>
+                <div class="empty-state-text">${message}</div>
+            `;
+            document.getElementById('loadingContainer').classList.add('hidden');
+            document.getElementById('tableContainer').classList.add('hidden');
+            document.getElementById('emptyState').classList.remove('hidden');
+        }
+
+        // Toast Notification
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<div class="toast-text">${message}</div>`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('hide');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 3000);
+        }
+
+        // Toggle Language
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const html = document.documentElement;
+            html.lang = isArabic ? 'ar' : 'en';
+            html.dir = isArabic ? 'rtl' : 'ltr';
+            
+            document.getElementById('body').className = isArabic ? 'bg-gray-50 arabic' : 'bg-gray-50 english';
+            
+            updateUILanguage();
+            displayRequests(allRequests);
+            updateStats();
+        }
+
+        // Update UI Language
+        function updateUILanguage() {
+            const lang = isArabic ? 'ar' : 'en';
+            Object.keys(translations[lang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholder
+            document.getElementById('searchInput').placeholder = translations[lang].searchPlaceholder;
+            document.getElementById('adminPassword').placeholder = translations[lang].passLabel;
+        }
+
+        // Check if already logged in
+        window.addEventListener('load', () => {
+            if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+                isLoggedIn = true;
+                showDashboard();
+                loadRequests();
+            }
+        });
+    </script>
+</body>
+</html>
